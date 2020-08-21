@@ -1,0 +1,54 @@
+.container{
+    background-color: #efefef;
+    padding: 2%;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 1%;
+    justify-content: center;
+}
+
+.container-readonly{
+    background-color: #efefef;
+    padding: 2%;
+    width:50%;
+    margin-left: 25%;
+    margin-top: 5%;
+    justify-content: center;
+}
+
+.div-with-cols{
+    display: flex;
+}
+
+.label-div{
+    width: 20%;
+    padding: 1%;
+    margin-left: 5%;
+}
+
+.input-div{
+    width: 80%;
+    padding: 1%;
+    margin-left: 5%;
+}
+
+.redText{
+    color: red;
+}
+
+.title{
+    text-align: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bold;
+    font-family: "verdana";
+}
+
+.center-aligned{
+    justify-content: center;
+}
+
+.label-text{
+    font-weight: bold;
+    font-family: "Verdana";
+}
