@@ -2,7 +2,6 @@
 <html>
     <head>
         <title>Candidate Profile</title>
-        <script lang="javascript" src="UserInformation.js"></script>
         <link rel="stylesheet" href="UserInformation.css">
     </head>
     <body>
@@ -16,7 +15,7 @@
                         <span class="label-text">Name</span>
                     </div>
                     <div class="input-div">
-                        <input type="text" id="candidateName" name="candidateName" onkeyup="validateInputName()">
+                        <input type="text" id="candidateName" name="candidateName">
                         <span id="nameErr" class="redText"></span>
                     </div>
                 </div>
@@ -42,7 +41,7 @@
                         <span class="label-text">Address</span>
                     </div>
                     <div class="input-div">
-                        <textarea id="address" name="address" cols="40" onkeyup="validateInputAddr()"></textarea>
+                        <textarea id="address" name="address" cols="40" ></textarea>
                         <span id="addrErr" class="redText"></span>
                     </div>
                 </div>
@@ -52,7 +51,7 @@
                         <span class="label-text">Email</span>
                     </div>
                     <div class="input-div">
-                        <input type="email" name="email" id="email" onblur="validateInputEmail()">
+                        <input type="email" name="email" id="email">
                         <span id="emailErr" class="redText"></span>
                     </div>
                 </div>
@@ -63,7 +62,7 @@
                         <span class="label-text">Phone Number</span>
                     </div>
                     <div class="input-div">
-                        <input type="text" name="phoneNo" id="phoneNo" onblur="validateInputPhone()">
+                        <input type="text" name="phoneNo" id="phoneNo">
                         <span id="phNoErr" class="redText"></span>
                     </div>
                 </div>
@@ -96,8 +95,8 @@
                                     <input type="text" id="percentage0" name="percentage" onblur="validateInputPercentage()"/>
                                 </td>
                                 <td>
-                                    <button style="border-radius: 50%;" onclick="addEduRow()"><span >+</span></button>
-                                    <button style="border-radius: 50%;" onclick="removeEduRow(this)"><span >-</span></button>
+                                    <button style="border-radius: 50%;" onclick="addEduRow()"><span>+</span></button>
+                                    <button style="border-radius: 50%;" onclick="removeEduRow(this)"><span>-</span></button>
                                 </td>
                             </tr>
                         </table>
@@ -131,7 +130,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <button style="border-radius: 50%;" onclick="addSkillRow()"><span >+</span></button>
+                                    <button style="border-radius: 50%;" onclick="addSkillRow()"><span>+</span></button>
                                     <button style="border-radius: 50%;" onclick="removeSkillRow(this)"><span>-</span></button>
                                 </td>
                             </tr>
@@ -155,17 +154,17 @@
                         <span class="label-text">Photo</span>
                     </div>
                     <div class="input-div">
-                        <input type="text" placeholder="Link to your online photo" id="photo" onblur="validateInputPhoto()">
+                        <input type="text" placeholder="Link to your online photo" id="photo">
                         <span id="photoErr" class="redText"></span>
                     </div>
                 </div>
                 <div>  
                     <br>
-                    <button onclick="navigateToReadOnlyPage()" style="width: 100px; margin-left: 40%;">Submit</button>
+                    <button id="submit" style="width: 100px; margin-left: 40%;">Submit</button>
                 </div>
             </div>
         </div>
     </div>
     </body>
-
+<script lang="javascript" src="UserInformation.js"></script>
 </html>
