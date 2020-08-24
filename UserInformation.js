@@ -14,28 +14,20 @@ var inputgenderErr = false;
 var inputHobbiesErr = false;
 
 function addEduRow(){
-    console.log("'adding row")
-
     if( this.eduRowCount == 7){
         alert("cannot add additional education information");
     } else{
         var eduTable = document.getElementById("eduInfoTable");
         var eduRow = document.getElementsByClassName("education-row")[0];
-        console.log(eduRow.innerHTML);
         var row = document.createElement("tr");
         row.setAttribute("id", "eduTr"+eduRowCount);
         row.innerHTML = eduRow.innerHTML;
         eduTable.appendChild(row);
         eduRowCount++;
-        // var levelNode = document.createElement("td");
-        // levelNode
-        // console.log(eduTable);
     }
 }
 
 function removeEduRow(el){
-    console.log("remove row")
-
     if( this.eduRowCount == 1){
         alert("cannot remove education information");
     } else{
@@ -46,7 +38,6 @@ function removeEduRow(el){
 }
 
 function addSkillRow(){
-    console.log("'adding row")
     var skillTable = document.getElementById("skillTable");
     var skillRow = document.getElementsByClassName("skill-row")[0];
     var row1 = document.createElement("tr");
@@ -54,15 +45,10 @@ function addSkillRow(){
     row1.innerHTML = skillRow.innerHTML;
     skillTable.appendChild(row1);
     skillRowCount++;
-    // var levelNode = document.createElement("td");
-    // levelNode
-    // console.log(eduTable);
 
 }
 
 function removeSkillRow(el){
-    console.log("remove row")
-
     if( this.skillRowCount == 1){
         alert("cannot remove skill information");
     } else{
@@ -129,7 +115,6 @@ function navigateToReadOnlyPage(){
     userInfo.CandidatePhoto = document.getElementById("photo").value;
 
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
-    console.log(localStorage.getItem("userInfo"));
     var urlStr = window.location.toString().substring(0,window.location.toString().lastIndexOf("/"))
     location.href = urlStr + "/ViewUserInformation.html"
 }
@@ -165,12 +150,8 @@ function showValues(){
     document.getElementById("skill_readonly").innerHTML = skillTrStr;
     document.getElementById("hobbies_readonly").innerHTML = savedData.CandidateHobbies;
     document.getElementById("photo_readonly").innerHTML = "<img src='"+savedData.CandidatePhoto+ "' />";
-    console.log(savedData.CandidateEducation);
     var candidateEducationArr =  savedData.CandidateEducation;
 }
-
-
-
 
 /**
  * Validation functions
@@ -329,7 +310,11 @@ function validateInputPhoto(){
     inputPhotoErr = false;
     document.getElementById("photoErr").style.display = 'none';
     var photo = document.getElementById('photo').value;
-    if( !photo.match(urlFmt)){
+    if(!photo.endsWith(".jpg") && !photo.endsWith(".jpeg")){
+        document.getElementById("photoErr").innerHTML = "Invalid Photo URL";
+        document.getElementById("photoErr").style.display = 'block';
+        inputPhotoErr = true;
+    } else if( !photo.match(urlFmt)){
         document.getElementById("photoErr").innerHTML = "Invalid Photo URL";
         document.getElementById("photoErr").style.display = 'block';
         inputPhotoErr = true;
