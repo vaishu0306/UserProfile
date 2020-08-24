@@ -181,7 +181,7 @@ function validateInputName(){
     inputNameErr = false;
     document.getElementById("nameErr").style.display = 'none';
     name = document.getElementById("candidateName").value;
-    if( name === ""){
+    if( name.trim() === ""){
         document.getElementById("nameErr").innerHTML = "Please enter name";
         document.getElementById("nameErr").style.display = 'block';
         inputNameErr = true;
@@ -385,4 +385,10 @@ function validateInput(){
     validateInputHobbies();
 }
 
-
+document.getElementById('candidateName').addEventListener('keyup', validateInputName);
+document.getElementById('address').addEventListener('keyup', validateInputAddr);
+document.getElementById('email').addEventListener('blur', validateInputEmail);
+document.getElementById('phoneNo').addEventListener('blur', validateInputPhone);
+document.getElementById('hobbies').addEventListener('blur', validateInputHobbies);
+document.getElementById('photo').addEventListener('blur', validateInputPhoto);
+document.getElementById('submit').addEventListener('click', navigateToReadOnlyPage);
