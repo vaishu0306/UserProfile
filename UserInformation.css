@@ -1,5 +1,5 @@
 .container{
-    background-color: #efefef;
+    background-color: #8432df;
     padding: 2%;
     width: 80%;
     margin-left: 10%;
@@ -8,7 +8,7 @@
 }
 
 .container-readonly{
-    background-color: #efefef;
+    background-color: #8432df;
     padding: 2%;
     width:50%;
     margin-left: 25%;
@@ -42,6 +42,7 @@
     font-size: larger;
     font-weight: bold;
     font-family: "verdana";
+    color: white;
 }
 
 .center-aligned{
@@ -49,6 +50,20 @@
 }
 
 .label-text{
+    color: white;
     font-weight: bold;
     font-family: "Verdana";
+}
+
+.white-text{
+    color: white;
+}
+
+.fix-width{
+    width: 30%;
+    text-align: center;
+    justify-content: center;
+}
+#edu_readonly, #skill_readonly{
+    border: 1px solid #c080d0;
 }

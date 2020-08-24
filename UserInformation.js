@@ -140,28 +140,31 @@ function showValues(){
     document.getElementById("name_readonly").innerHTML = savedData.CandidateName;
     document.getElementById("gender_readonly").innerHTML = savedData.CandidateGender;
     document.getElementById("address_readonly").innerHTML = savedData.CandidateAddress;
+    document.getElementById("email_readonly").innerHTML = savedData.CandidateEmail;
     document.getElementById("phone_readonly").innerHTML = savedData.CandidatePhone;
 
     var education = savedData.CandidateEducation;
     var trStr = "";
+    trStr = trStr.concat("<tr><th class='white-text fix-width'>Level</th><th class='white-text fix-width'>Year</th><th class='white-text fix-width'>Percentage</th></tr>");
     for(var i=0; i < education.length; i++){
-        trStr = trStr.concat("<tr><td><span>Education &nbsp;</span>" + education[i].level +"</td>");
-        trStr = trStr.concat("<td><span>&nbsp;Year &nbsp;</span>" + education[i].year +"</td>");
-        trStr = trStr.concat("<td><span>&nbsp;Percentage &nbsp;</span>" + education[i].percentage +"</td></tr>");
+        
+        trStr = trStr.concat("<tr><td  class='fix-width'><span class='white-text'>" + education[i].level +"</span></td>");
+        trStr = trStr.concat("<td class='fix-width'><span class='white-text'>" + education[i].year +"</span></td>");
+        trStr = trStr.concat("<td class='fix-width'><span class='white-text'>" + education[i].percentage +"</span></td></tr>");
     }
 
     var skills = savedData.CandidateSkill;
     var skillTrStr = "";
-
+    skillTrStr = skillTrStr.concat("<th class='white-text fix-width'>Skill</th><th class='white-text fix-width'>Self Rating</th></tr>");
     for(var i=0; i < skills.length; i++){
-        skillTrStr = skillTrStr.concat("<tr><td><span>Skill &nbsp;</span>" + skills[i].skill +"</td>");
-        skillTrStr = skillTrStr.concat("<td><span>&nbsp;    Self Rating &nbsp;</span>" + skills[i].selfRating +"</td>");
+        skillTrStr = skillTrStr.concat("<tr><td class='fix-width'><span class='white-text'>" + skills[i].skill +"</span></td>");
+        skillTrStr = skillTrStr.concat("<td class='fix-width'><span class='white-text'>" + skills[i].selfRating +"</span></td>");
     }
 
     document.getElementById("edu_readonly").innerHTML = trStr;
     document.getElementById("skill_readonly").innerHTML = skillTrStr;
     document.getElementById("hobbies_readonly").innerHTML = savedData.CandidateHobbies;
-    document.getElementById("photo_readonly").innerHTML = savedData.CandidatePhoto;
+    document.getElementById("photo_readonly").innerHTML = "<img src='"+savedData.CandidatePhoto+ "' />";
     console.log(savedData.CandidateEducation);
     var candidateEducationArr =  savedData.CandidateEducation;
 }
@@ -200,7 +203,7 @@ function validateInputAddr(){
     inputAddrErr = false;
     document.getElementById("addrErr").style.display = 'none';
     var addr = document.getElementById("address").value;
-    if( addr == "" ){
+    if( addr.trim() == "" ){
         document.getElementById("addrErr").innerHTML = "Please enter address";
        document.getElementById("addrErr").style.display = 'block';
        inputAddrErr = true;
@@ -219,7 +222,7 @@ function validateInputEmail(){
     inputEmailErr = false;
     document.getElementById("emailErr").style.display = 'none';
     var emailVal = document.getElementById("email").value;
-    if( emailVal == ""){
+    if( emailVal.trim() == ""){
         document.getElementById("emailErr").innerHTML = "Please enter email";
        document.getElementById("emailErr").style.display = 'block';
        inputEmailErr = true;
@@ -309,7 +312,7 @@ function validateInputSkill(){
     for(var i=0; i<skillRowCount; i++){
         var skillRow = document.getElementById("skillTr"+i);
         var skillValue = skillRow.getElementsByTagName("td")[0].children[1].value; 
-        if( !skillValue){
+        if( !skillValue.trim()){
             document.getElementById("skillErr").innerHTML = "Please enter Skill value";
             document.getElementById("skillErr").style.display = 'block';
             inputSkillErr = true;
@@ -358,7 +361,7 @@ function validateGender(){
 
 function validateInputHobbies(){
     var hobbies = document.getElementById("hobbies").value;
-    if( hobbies == "" ){
+    if( hobbies.trim() == "" ){
         document.getElementById("hobbiesErr").innerHTML = "Enter hobbies";
         document.getElementById("hobbiesErr").style.display = 'block';
         inputHobbiesErr = true;
